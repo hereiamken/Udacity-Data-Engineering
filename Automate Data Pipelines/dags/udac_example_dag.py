@@ -2,11 +2,11 @@ from datetime import datetime, timedelta
 import os
 from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
-from airflow.operators import (StageToRedshiftOperator, LoadFactOperator,
-                               LoadDimensionOperator, DataQualityOperator)
-from helpers import SqlQueries
 from airflow.contrib.hooks.aws_hook import AwsHook
 from airflow.operators.postgres_operator import PostgresOperator
+from airflow.operators import (
+    StageToRedshiftOperator, LoadFactOperator, LoadDimensionOperator, DataQualityOperator)
+from helpers import SqlQueries
 
 AWS_KEY = AwsHook('aws_credentials').get_credentials().access_key
 AWS_SECRET = AwsHook('aws_credentials').get_credentials().secret_key

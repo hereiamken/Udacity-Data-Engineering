@@ -102,10 +102,15 @@ def prettyRedshiftProps(props):
     return pd.DataFrame(data=x, columns=["Key", "Value"])
 
 
-def check_status():
+def check_status(status):
     try:
         myClusterProps = redshift.describe_clusters(
             ClusterIdentifier=DWH_CLUSTER_IDENTIFIER)['Clusters'][0]
+
+        while redshift.describe_clusters(ClusterIdentifier=DWH_CLUSTER_IDENTIFIER)['Clusters'][0]['ClusterStatus'] != status:
+            sleep(5)
+            prettyRedshiftProps(myClusterProps)
+
         prettyRedshiftProps(myClusterProps)
     except:
         print('cluster is deleted')
