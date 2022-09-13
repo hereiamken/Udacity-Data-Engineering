@@ -1,0 +1,101 @@
+/////////////////////
+// Data Dictionary //
+/////////////////////
+
+-----------
+Airport
+-----------
+-- ident: Unique identifier (PK)
+-- type: Airport type
+-- name: Airport name
+-- elevation_ft: Airport altitude
+-- continent: Airport's continent
+-- iso_country: ISO Code of the airport's country
+-- iso_region: ISO Code for the airport's region
+-- municipality: City/Municipality where the airport is located
+-- gps_code: Airport GPS Code
+-- iata_code: Airport IATA Code
+-- local_code: Airport Local Code
+-- coordinates: Airport coordinates
+
+-----------
+Country
+-----------
+-- country_code: 3 digit code for immigrant country of residence (PK)
+-- country_name: Name of country
+
+-----------
+Port
+-----------
+-- port_code: Code of port (PK)
+-- city: Location of Port
+-- state_code: Port's state code
+
+-----------
+Time
+-----------
+-- arrdate: Arrival Date in the USA (PK)
+-- date: Arrival Date
+-- day: Day of arrival
+-- month: Month of arrival
+-- year: Year of arrival
+-- week: Week of arrival
+-- weekday: Day of week of arrival
+
+-----------
+Visa
+-----------
+-- visa_id: Unique identifier (PK)
+-- i94visa: Visa codes collapsed into three categories
+-- visatype: Class of admission legally admitting the non-immigrant to temporarily stay in U.S.
+-- visapost: Department of State where where Visa was issued
+
+-----------
+State
+-----------
+-- state_code: Code of the state (PK)
+-- state: US State
+-- median_age: The median population age
+-- total_population: Total population
+-- male_population: Male population total
+-- female_population: Female population total
+-- foreign_born: Number of residents who were not born in the state
+-- average_household_size: Average size of houses in the state
+
+-----------
+Temperature
+-----------
+-- temperature_id: Unique Identifier (PK)
+-- country_code: Code of country
+-- country_name: Name of country
+-- average_temperature: Average temperature in celsius
+-- average_temperature_uncertainty: 95% confidence interval around average temperature
+
+-----------
+Immigration
+-----------
+-- cicid: Unique identifier (PK)
+-- i94yr: 4 digit year 
+-- i94mon: Numeric month
+-- i94res: 3 digit code for immigrant country of residence
+-- i94mode: Mode of transportation (1 = Air; 2 = Sea; 3 = Land; 9 = Not reported)
+-- i94port: Port of admission
+-- i94cit: Port of admission
+-- i94addr: USA State of arrival
+-- i94bir: Age of Respondent in Years
+-- occupation: Occupation that will be performed in U.S.
+-- gender: gender
+-- birth_year: 4 digit year of birth 
+-- entry_date: Date to which admitted to U.S. (allowed to stay until)
+-- airline: Airline used to arrive in U.S.
+-- admission_number: Admission Number
+-- flight_number: Flight number of Airline used to arrive in U.S. 
+-- visa_type:  Class of admission legally admitting the non-immigrant to temporarily stay in U.S.
+-- arrival_date: The Arrival Date in the USA. ID of dim_time (FK)
+-- departure_date: The Departure Date from the USA
+-- temperature_id: ID of dim_temperature (FK)
+-- visa_id: ID of dim_visa (FK)
+-- state_code: ID of dim_state (FK)
+-- port_code: ID of dim_port (FK)
+-- country_code: ID of dim_country (FK)
+-- ident: ID of dim_airport (FK)
